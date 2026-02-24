@@ -1,12 +1,12 @@
 public class PalindromeCheckerApp {
     public static boolean isPalindrome(String str){
         int length = str.length();
-        for (int i = 0;i < length/2;i++){
-            if (str.charAt(i)!=str.charAt(length-1-i)){
-                return false;
-            }
+        String reversed = "";
+        for(int i = length-1;i >= 0;i--){
+            reversed += str;
+            return true;
         }
-        return true;
+        return false;
     }
     public static void main(String[] args){
         String str = "madam";
