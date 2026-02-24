@@ -1,17 +1,21 @@
 public class PalindromeCheckerApp {
-    public static boolean isPalindrome(String str){
-        int length = str.length();
-        String reversed = "";
-        for(int i = length-1;i >= 0;i--){
-            reversed += str;
-            return true;
+    public static boolean isPalindrome(String str) {
+        char[] chars = str.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                return false;
+            }
+            start++;
+            end--;
         }
-        return false;
+        return true;
     }
     public static void main(String[] args){
-        String str = "madam";
+        String str = "radar";
         boolean result = isPalindrome(str);
-        System.out.println("Input text: " +str);
-        System.out.println("Is it a Palindrome?: " +result);
+        System.out.println("Input: " +str);
+        System.out.println("Is Palindrome?: " +result);
     }
 }
