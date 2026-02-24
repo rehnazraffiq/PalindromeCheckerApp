@@ -1,19 +1,19 @@
+import java.util.Stack;
 public class PalindromeCheckerApp {
     public static boolean isPalindrome(String str) {
-        char[] chars = str.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : str.toCharArray()) {
+            stack.push(c);
+        }
+        for( char c : str.toCharArray()){
+            if(stack.pop()!=c){
                 return false;
             }
-            start++;
-            end--;
         }
         return true;
     }
     public static void main(String[] args){
-        String str = "radar";
+        String str = "noon";
         boolean result = isPalindrome(str);
         System.out.println("Input: " +str);
         System.out.println("Is Palindrome?: " +result);
