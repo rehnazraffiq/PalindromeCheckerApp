@@ -1,19 +1,19 @@
 
 public class PalindromeCheckerApp {
-    private static boolean check(String str, int start, int end){
-        while (start < end){
-            if(str.charAt(start)!=str.charAt(end)){
-                return false;
-            }
-            start++;
-            end--;
+    public static boolean isPalindrome(String text){
+        String normalized = text.replaceAll("\\s+", "").toLowerCase();
+        int length = normalized.length();
+        for (int i = 0; i < length/2; i++){
+           if(normalized.charAt(i) != normalized.charAt(length-1-i)){
+               return false;
+           }
         }
         return true;
     }
     public static void main(String[] args){
-        String str = "madam";
-        boolean result = check(str,0,str.length()-1);
-        System.out.println("Input: " +str);
+        String text= "A man a plan a canal Panama";
+        boolean result = isPalindrome(text);
+        System.out.println("Input: " +text);
         System.out.println("Is Palindrome?: " +result);
     }
 }
