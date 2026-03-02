@@ -1,20 +1,26 @@
 public class PalindromeCheckerApp {
-    public static boolean checkPalindrome(String input) {
+    public static void main(String[] args){
+        String str = "racecar";
+        PalindromeService service = new PalindromeService();
+        boolean result = service.checkPalindrome(str);
+
+        System.out.println("Input : " + str);
+        System.out.println("Is Palindrome? : " + result);
+    }
+}
+class PalindromeService{
+    public boolean checkPalindrome(String str) {
+
         int start = 0;
-        int end = input.length() - 1;
+        int end = str.length() - 1;
+
         while (start < end) {
-            if (input.charAt(start) != input.charAt(end)) {
+            if (str.charAt(start) != str.charAt(end)) {
                 return false;
             }
             start++;
             end--;
         }
         return true;
-    }
-    public static void main(String[] args){
-        String input= "racecar";
-        boolean result = checkPalindrome(input);
-        System.out.println("Input: " +input);
-        System.out.println("Is Palindrome?: " +result);
     }
 }
